@@ -9,8 +9,11 @@ public class LoginMember {
 
   private String token;
 
-  public LoginMember(String email, String token) {
+  private String role;
+
+  public LoginMember(String email, String token, String role) {
     this.email = email;
     this.token = token;
+    this.role = role;
   }
 }

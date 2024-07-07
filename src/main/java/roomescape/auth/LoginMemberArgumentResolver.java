@@ -33,7 +33,8 @@ public class LoginMemberArgumentResolver implements HandlerMethodArgumentResolve
 
     String token = tokenProperties.extractTokenFromCookie(httpServletRequest.getCookies());
     String email = tokenProperties.getEmailFromToken(token);
+    String role = memberService.findMemberByEmail(email).getRole();
 
-    return new LoginMember(email, token);
+    return new LoginMember(email, token, role);
   }
 }
