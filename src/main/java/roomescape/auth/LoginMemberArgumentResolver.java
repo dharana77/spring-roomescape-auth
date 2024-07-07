@@ -1,7 +1,6 @@
 package roomescape.auth;
 
 import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.MethodParameter;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.support.WebDataBinderFactory;
@@ -13,8 +12,8 @@ import roomescape.service.MemberService;
 
 @Component
 public class LoginMemberArgumentResolver implements HandlerMethodArgumentResolver {
-  private MemberService memberService;
-  private TokenPropertiesConfig tokenProperties;
+  private final MemberService memberService;
+  private final TokenPropertiesConfig tokenProperties;
 
   public LoginMemberArgumentResolver(MemberService memberService, TokenPropertiesConfig tokenPropertiesConfig) {
     this.memberService = memberService;
