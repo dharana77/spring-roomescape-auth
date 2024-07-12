@@ -12,13 +12,13 @@ import java.util.List;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
+  private final MemberService memberService;
+  private final TokenPropertiesConfig tokenPropertiesConfig;
+
   public WebConfig(MemberService memberService, TokenPropertiesConfig tokenPropertiesConfig) {
     this.memberService = memberService;
     this.tokenPropertiesConfig = tokenPropertiesConfig;
   }
-
-  private final MemberService memberService;
-  private final TokenPropertiesConfig tokenPropertiesConfig;
 
   @Override
   public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
