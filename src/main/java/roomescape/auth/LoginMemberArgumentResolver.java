@@ -8,6 +8,7 @@ import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 import roomescape.config.TokenPropertiesConfig;
+import roomescape.enums.Role;
 import roomescape.service.MemberService;
 
 @Component
@@ -33,7 +34,7 @@ public class LoginMemberArgumentResolver implements HandlerMethodArgumentResolve
 
     String token = tokenProperties.extractTokenFromCookie(httpServletRequest.getCookies());
     String email = tokenProperties.getEmailFromToken(token);
-    String role = memberService.findMemberByEmail(email).getRole();
+    Role role = Role.valueOf(memberService.findMemberByEmail(email).getRole());
 
     return new LoginMember(email, token, role);
   }

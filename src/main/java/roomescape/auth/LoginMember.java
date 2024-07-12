@@ -1,6 +1,7 @@
 package roomescape.auth;
 
 import lombok.Getter;
+import roomescape.enums.Role;
 
 @Getter
 public class LoginMember {
@@ -9,9 +10,9 @@ public class LoginMember {
 
   private String token;
 
-  private String role;
+  private Role role;
 
-  public LoginMember(String email, String token, String role) {
+  public LoginMember(String email, String token, Role role) {
     this.email = email;
     this.token = token;
     this.role = role;

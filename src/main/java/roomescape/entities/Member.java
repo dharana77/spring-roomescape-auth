@@ -2,6 +2,7 @@ package roomescape.entities;
 
 import lombok.Builder;
 import lombok.Getter;
+import roomescape.enums.Role;
 
 @Getter
 @Builder
